@@ -8,7 +8,24 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock FontSize="36" Grid.RowSpan="2" >WiFi Panther</TextBlock>
+        <StackPanel Name="spButtons" Grid.Row="1" Orientation="Horizontal">
+            <Button Name="buttonScan" Click="ButtonScan_Click">Scan Wi-Fi Networks</Button>
+            <ProgressRing Name="progressScan" IsActive="False"/>
+        </StackPanel>
+        <ListView Name="listViewAPs" Grid.Row="2"/>
     </Grid>
+
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton Name="appWifiInfo" Icon="Bullets" Label="Wifi adapter info" Click="AppWifiInfo_Click"/>
+            <AppBarButton Name="appAbout" Icon="Help" Label="About" Click="AppAbout_Click"/>
+        </CommandBar>
+    </Page.BottomAppBar>
 </Page>
